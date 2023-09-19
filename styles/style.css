@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-.page {
-  min-inline-size: 360px;
-  margin: 0;
-}
-
 p,
 h1,
 h2,
@@ -19,6 +14,11 @@ ol,
 li,
 figure {
   margin: 0;
+}
+
+ul,
+li {
+  padding: 0;
 }
 
 a:focus, button:focus {
@@ -33,6 +33,13 @@ a:focus, button:focus {
   --accent-font: 'STIX Two Text';
 }
 
+.page {
+  min-inline-size: 360px;
+  margin: 0;
+  background-color: var(--bg-color, #F3EFEC);
+  color: var(--text-color, #312A4E);
+}
+
 .theme_dark {
   --bg-color: #171717;
   --text-color: #B3B3B3;
@@ -41,6 +48,7 @@ a:focus, button:focus {
 
 a {
   color: inherit;
+  text-underline-offset: 2px;
 }
 
 a:hover {
@@ -52,15 +60,9 @@ a:focus-visible {
   outline-offset: 1px; 
 }
 
-.page {
-  background-color: var(--bg-color, #F3EFEC);
-  color: var(--text-color, #312A4E);
-}
-
-
 .heading {
   text-align: center;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
   line-height: 90%;
@@ -73,7 +75,6 @@ a:focus-visible {
 
 .header__title {
   font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
-  height: 108px;
 }
 
 .content__title {
@@ -98,10 +99,6 @@ a:focus-visible {
   margin-top: 40px;
 }
 
-/* .header__logo svg use{
-  color: var(--text-color);
-} */
-
 .header__theme-toggler {
   list-style: none;
   display: flex;
@@ -113,7 +110,7 @@ a:focus-visible {
   background-color: transparent;
   color: var(--text-color);
   border: none;
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -159,13 +156,17 @@ a:focus-visible {
   z-index: -1;
 }
 
+.theme_dark .header__theme-button_is-active::after {
+  background-image: url(../images/pattern.svg);
+}
+
 .content__text-block {
   display: flex;
   flex-direction: column;
 }
 
 .content__paragraph {
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -177,7 +178,7 @@ a:focus-visible {
 }
 
 .content__blockquote {
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
@@ -187,7 +188,7 @@ a:focus-visible {
 }
 
 .content__text-block_type_first-lettered > .content__paragraph:nth-child(1)::first-letter {
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -203,7 +204,7 @@ a:focus-visible {
 }
 
 .content__list {
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -222,7 +223,7 @@ a:focus-visible {
 .content__list__item::before {
   position: absolute;
   content: '';
-  top: 1.5px;
+  top: 25%;
   left: 10px;
   width: 15px;
   height: 15px;
@@ -260,7 +261,7 @@ a:focus-visible {
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -280,7 +281,7 @@ a:focus-visible {
 }
 
 .content__card-title {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), Arial, sans-serif;
   font-size: 60px;
   font-style: normal;
   font-weight: 600;
@@ -290,12 +291,12 @@ a:focus-visible {
 
 .content__card-subtitle {
   text-align: center;
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: block;
+  display: inline-block;
 }
 
 .colored-text {
@@ -316,6 +317,10 @@ a:focus-visible {
   z-index: -1;
 }
 
+.theme_dark .colored-text::after {
+  background-image: url(../images/pattern.svg);
+}
+
 .footer {
   margin-top: 10%;
   display: flex;
@@ -329,7 +334,7 @@ a:focus-visible {
 
 .footer__copyright {
   color: var(--text-color);
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
